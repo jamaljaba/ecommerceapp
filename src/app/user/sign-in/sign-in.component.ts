@@ -52,12 +52,21 @@ export class SignInComponent implements OnInit {
       this.globalitem.showSpinner()
       this.authenticationService.login(this.f.username.value, this.f.password.value)
         .then((res) => {
-          this.router.navigate(['products']);
+
           this.globalitem.showSuccess("You have Successfully  Login","Success")
           this.globalitem.hideSpinner()
+          this.navigateproduct()
         }).catch((error) => {
           this.globalitem.hideSpinner()
           this.globalitem.showError(error.message,"Error")
         })
+  }
+  navigateproduct(){
+    setTimeout(()=>{
+      this.router.navigate(['products']);
+    console.log("inside login");
+
+    }, 1500);
+
   }
 }
