@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "ecommerceapp-8af4c": {
+      "hosting": {
+        "myfirstapp": [
+          "ecommerceapp-8af4c"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "staging": "ecommerceapp-8af4c"
+  }
+}

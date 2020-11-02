@@ -1,0 +1,63 @@
+h4{
+    float: left;
+    // margin: 0px 9px 15px 0px;
+    display: contents;
+    color: cornflowerblue;
+}
+h5{
+  color: white;
+  margin-left: 1%;
+  margin-top: 3px;
+}
+h4,h5{
+  font-weight: bold;
+  font-size: 22px;
+}
+.mat-card-image{
+  cursor: pointer;
+  height: 200px !important;
+  object-fit: cover;
+}
+mat-card-actions{
+  padding-bottom: 28px !important;
+}
+.row > div {
+  margin-bottom: 4% !important;
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+mat-toolbar{
+  background: cornflowerblue;
+  color: white;
+  margin-bottom: 30px;
+}
+mat-icon{
+  margin-left: 1%;
+  cursor: pointer;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-tap-highlight-color: transparent;
+}
+button{
+  color: white !important;
+  position: absolute;
+    background: orange;
+    margin: 0px !important;
+    right: 10px ;
+    font-weight: bold !important;
+}
+.mat-ripple {
+  overflow: inherit !important;
+}
+.mat-card-content {
+  height: 70px !important;
+}
+.skeleton{
+  width: 100%;
+    padding: 0px 37px 2px 37px;
+}

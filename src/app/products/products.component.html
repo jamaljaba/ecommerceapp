@@ -1,0 +1,60 @@
+  <mat-toolbar>
+      <mat-icon matRipple>home</mat-icon>
+      <h5>Dashboard</h5>
+      <span class="example-spacer"></span>
+      <mat-icon matRipple *ngIf="cart_counter <= 0" (click)="tempcartservice()"  matBadgeColor="warn">shopping_cart</mat-icon>
+      <mat-icon matRipple [matBadge]="cart_counter" *ngIf="cart_counter > 0" matBadgeColor="warn" (click)="tempcartservice()">shopping_cart</mat-icon>
+      <mat-icon (click)="logout()" matRipple>power_settings_new</mat-icon>
+  </mat-toolbar>
+  <section class="my-5" *ngIf="products.length;">
+   <div class="container">
+        <div class="row" >
+          <div class="col-md-4" *ngFor="let product of (products |
+          slice: lowValue : highValue)">
+              <mat-card class="example-card">
+                 <div style="height: 200px;">
+                  <img class="mat-card-image" mat-card-image [src]="product.imageurl" alt="Photo of a Shiba Inu">
+                 </div>
+                  <mat-card-content>
+                    <strong>
+                        {{product.name}}
+                    </strong>
+                  </mat-card-content>
+                  <mat-card-actions >
+                    <h4>{{product?.price}} {{product?.currency}}</h4>
+                    <button (click)="addtoCart(product.imageurl,product?.price,product.name,product.$key)" mat-button color="primary" >Add cart</button>
+                  </mat-card-actions>
+                </mat-card>
+          </div>
+      </div>
+      <!-- Paginator -->
+      <mat-paginator [length]="products.length"  [pageSize]="pageSize"
+               (page)="getPaginatorData($event)" [pageSizeOptions]="pageSizeOptions"
+               showFirstLastButtons="true">
+      </mat-paginator>
+      </div>
+  </section>
+  <!-- Content section end -->
+  <!-- Skeleton start -->
+  <div *ngIf="!products.length;" class="skeleton">
+      <div class="row" >
+        <div style="width: 30%;" class="col-md-4"  *ngFor="let product of [1,2,3,4,5,6]">
+            <mat-card class="example-card">
+                <div>
+                <ngx-skeleton-loader [theme]="{ height: '130px',width: '100%'}"></ngx-skeleton-loader>
+                </div>
+                <mat-card-content>
+                    <ngx-skeleton-loader [theme]="{ height: '10px',width: '100px'}"></ngx-skeleton-loader>
+                    <ngx-skeleton-loader [theme]="{ height: '10px',width: '100px'}"></ngx-skeleton-loader>
+                    <ngx-skeleton-loader [theme]="{ height: '10px',width: '100px'}"></ngx-skeleton-loader><br>
+                    <ngx-skeleton-loader [theme]="{ height: '10px',width: '100px'}"></ngx-skeleton-loader>
+                </mat-card-content>
+                <mat-card-actions>
+                  <h4><ngx-skeleton-loader [theme]="{ height: '25px',width: '40px'}"></ngx-skeleton-loader></h4>
+                  <ngx-skeleton-loader  [theme]="{ height: '30px',width: '50px',right: '16px',position: 'absolute'}"></ngx-skeleton-loader>
+                </mat-card-actions>
+              </mat-card>
+        </div>
+
+  </div>
+    <!-- Skeleton end -->
