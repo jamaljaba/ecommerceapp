@@ -21,7 +21,7 @@ export class SignInComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private globalitem: GlobalitemsService,
-    private router: Router,
+    public router: Router,
     private authenticationService: AuthService
       // private authenticationService: AuthenticationService
   ) {
@@ -40,21 +40,24 @@ export class SignInComponent implements OnInit {
       // convenience getter for easy access to form fields
       get f() { return this.loginForm.controls; }
 
-      onSubmit() {
-        this.submitted = true;
-        // stop here if form is invalid
-        if (this.loginForm.invalid) {
-            return;
-        }
-        this.globalitem.showSpinner()
-        this.authenticationService.login(this.f.username.value, this.f.password.value)
-      .then((res) => {
-        this.globalitem.hideSpinner()
-         this.globalitem.showSuccess("You have Successfully  Login","Success")
-         this.router.navigate(['products']);
-      }).catch((error) => {
-        this.globalitem.hideSpinner()
-        this.globalitem.showError(error.message,"Error")
-      })
-    }
+      login() {
+      this.submitted = true;
+      // stop here if form is invalid
+      if (this.loginForm.invalid) {
+          return;
+      }
+
+      console.log("sign in");
+
+      this.globalitem.showSpinner()
+      this.authenticationService.login(this.f.username.value, this.f.password.value)
+        .then((res) => {
+          this.router.navigate(['products']);
+          this.globalitem.showSuccess("You have Successfully  Login","Success")
+          this.globalitem.hideSpinner()
+        }).catch((error) => {
+          this.globalitem.hideSpinner()
+          this.globalitem.showError(error.message,"Error")
+        })
+  }
 }

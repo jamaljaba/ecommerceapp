@@ -60,9 +60,10 @@ export class SignupComponent implements OnInit {
       addusertodb(){
         this.authenticationService.Adduser(this.signupForm.value)
         .then((res) => {
+          this.router.navigate(['products']);
           this.globalitem.hideSpinner()
           this.globalitem.showSuccess("You have Successfully  Signup","Success")
-         this.router.navigate(['user/products']);
+
        }).catch((error) => {
         this.globalitem.hideSpinner()
          this.globalitem.showError(error.message,"Error")

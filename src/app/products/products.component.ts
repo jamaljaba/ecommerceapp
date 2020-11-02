@@ -75,7 +75,7 @@ export class ProductsComponent implements OnInit {
   logout(){
     this.auth.SignOut();
     this.globalitem.showSuccess("you have successfully sign out","Success")
-    this.router.navigate(["user"])
+    // this.router.navigate(["user"])
   }
 
   //this function will used for iterate unique items and its quantity

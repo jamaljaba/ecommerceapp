@@ -2,7 +2,7 @@
   <div class="card">
       <h4 class="card-header">SIGN IN</h4>
       <div class="card-body">
-          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <form [formGroup]="loginForm" (ngSubmit)="login()">
               <div class="form-group">
                   <label for="username">Username/Email</label>
                   <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
